@@ -1,3 +1,5 @@
+with your text editor ~/.local/bin/screenshot.sh  
+
 #!/usr/bin/env bash
 
 # Screenshot directory
