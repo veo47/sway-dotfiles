@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Screenshot directory
+DIR="$HOME/Pictures/Screenshots"
+mkdir -p "$DIR"
+
+# Filename with timestamp
+FILE="$DIR/screenshot_$(date +%Y%m%d_%H%M%S).png"
+
+case $1 in
+    full)
+        # Full screen
+        grim "$FILE"
+        notify-send -a "Screenshot" "Screenshot saved" "$FILE"
+        ;;
+    area)
+        # Select area
+        grim -g "$(slurp)" "$FILE"
+        notify-send -a "Screenshot" "Screenshot saved" "$FILE"
+        ;;
+    window)
+        # Select window
+        grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focuse>
+        notify-send -a "Screenshot" "Screenshot saved" "$FILE"
+        ;;
+    clipboard)
+        # Area to clipboard
+        grim -g "$(slurp)" - | wl-copy
+        notify-send -a "Screenshot" "Screenshot copied to clipboard"
+        ;;
+esac
