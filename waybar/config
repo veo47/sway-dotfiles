@@ -1,0 +1,113 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 35,
+  "spacing": 15,
+  "exclusive": true,  
+  "margin": "0 0 0 0",  
+
+  "modules-left": ["custom/logo", "sway/workspaces", "sway/mode"],
+  "modules-center": ["sway/window"],
+  "modules-right": ["custom/notification", "pulseaudio", "network", "cpu", "memory","battery", "clock", "tray"],
+
+  "custom/launcher": {
+    "format": "[ MENU ]",
+    "tooltip": false,
+    "on-click": "wofi --show drun"
+  },
+
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "urgent": "!",
+      "focused": "*",
+      "default": "-"
+    }
+  },
+
+  "sway/mode": {
+    "format": "[ {} ]"
+  },
+
+  "sway/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+
+  "clock": {
+    "timezone": "Africa/algeris",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": " {:%I:%M %p}",
+    "format-alt": "[ DATE: {:%A, %B %d, %Y} ]"
+  },
+
+
+   "cpu": {
+    "format": "&#8239;{usage}%",
+    "tooltip": false,
+    "on-click": "kitty -e htop"
+   },  
+
+   "custom/logo": {
+        "format": "veo",  
+        "tooltip": false,
+        "on-click": "rofi -show drun"  
+  },
+
+  "memory": {
+    "format": " {used:0.2f}GB",
+    "on-click": "alacritty -e htop"
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "[ TEMP: {temperatureC}°C ]",
+    "format-critical": "[ TEMP: {temperatureC}°C ! ]"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "[ BAT: {capacity}% ]",
+    "format-charging": "[ BAT: {capacity}% + ]",
+    "format-plugged": "[ BAT: {capacity}% = ]",
+    "format-alt": "[ BAT: {time} ]"
+  },
+
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "[ NET: Connected ]",
+    "tooltip-format": "{ifname}\n{ipaddr}/{cidr}\nStrength: {signalStrength}%",
+    "format-linked": "[ NET: No IP ]",
+    "format-disconnected": "[ NET: Disconnected ]",
+    "format-alt": "[ NET: {bandwidthDownBytes} / {bandwidthUpBytes} ]"
+  },
+
+  "pulseaudio": {
+   "format": "{icon} {volume}% {format_source}",
+  "format-bluetooth": "{icon} {volume}% {format_source}",
+  "format-bluetooth-muted": " {format_source}",
+  "format-muted": "  {format_source}",
+  "format-source": " {volume}%",
+  "format-source-muted": "",
+  },
+
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  }
+}

@@ -1,0 +1,163 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrains Mono", "Font Awesome 6 Free";
+  font-size: 13px;
+  min-height: 0;
+
+}
+
+window#waybar {
+  background-color: #000000;
+  color: #b9c3d4;
+  border-radius: 20px;
+  margin: 10px 10px;
+}
+
+#workspaces {
+  background-color: #000000;
+  margin: 0;
+  padding: 0 5px;
+}
+
+#bluetooth {
+ padding: 4px 10px;
+  background: linear-gradient(180deg, #000000 0%, #000000 100%);
+  color: #b9c3d4;
+  border-radius: 10px;
+  border: 0px solid rgba(185, 195, 212, 1);
+}
+
+#custom-logo {
+ padding: 4px 10px;
+ background: linear-gradient(180deg, #000000 0%, #000000 100%);
+ color: #000000;
+ border-radius: 10px;
+ border: 0px solid rgba(185, 195, 212, 1);
+}
+
+#workspaces button {
+  padding: 0 10px;
+  color: #ffffff;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  background-color: #b9c3d4;
+  color: #000000;
+}
+
+#workspaces button.focused {
+  background: linear-gradient(135deg, #000000 0%, #000000 100%);
+  color: #b9c3d4;
+}
+
+#workspaces button.urgent {
+  background: linear-gradient(135deg, #b9c3d4 0%, #b9c3d4 100%);
+  color: #b9c3d4;
+}
+
+#mode {
+  background: linear-gradient(135deg, #b9c3d4 0%, #b9c3d4 100%);
+  color: #fff5e6;
+  padding: 0 12px;
+  font-weight: bold;
+}
+
+#window {
+  padding: 4px 10px;
+  background-color: #000000;
+  color: #d4c5b9;
+  border-radius: 10px;
+  font-style: italic;
+  border: 0px solid rgba(185, 195, 212, 1);
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio {
+  padding: 4px 10px;
+  background: linear-gradient(180deg, #000000 0%, #000000 100%);
+  color: #b9c3d4;
+  border-radius: 10px;
+  border: 0px solid rgba(185, 195, 212, 1);
+}
+
+#tray {
+  padding: 0 12px;
+  background-color: #000000;
+  font-style: italic;
+  border-radius: 10px;
+  border: 0px solid rgba(139, 111, 71, 0.3);
+}
+
+/* Specific module colors */
+#battery.charging {
+  color: #a8c7a0;
+}
+
+#battery.warning:not(.charging) {
+  color: #d4a574;
+  background: linear-gradient(180deg, #4d3820 0%, #3d2f1a 100%);
+}
+
+#battery.critical:not(.charging) {
+  color: #d47d74;
+  background: linear-gradient(180deg, #4d2820 0%, #3d1f1a 100%);
+  animation: blink 1s linear infinite;
+}
+
+#temperature.critical {
+  color: #d47d74;
+  background: linear-gradient(180deg, #4d2820 0%, #3d1f1a 100%);
+}
+
+
+#custom-logo {
+    font-size: 20px;
+    color: #7ebae4;  /* NixOS blue */
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+
+#pulseaudio.muted {
+  color: #8b7766;
+}
+
+#network.disconnected {
+  color: #d47d74;
+}
+
+#cpu {
+  color: #c9a87c;
+}
+
+#memory {
+  color: #b8956f;
+}
+
+#clock {
+  color: #e6d4c1;
+  font-weight: 500;
+}
+
+@keyframes blink {
+  to {
+    opacity: 0.5;
+  }
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #c17857;
+}

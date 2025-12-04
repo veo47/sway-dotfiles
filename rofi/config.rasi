@@ -1,0 +1,154 @@
+configuration {
+    show-icons:      true;
+    display-drun:    "";
+    disable-history: false;
+}
+
+* {
+    /* Pure black theme color palette */
+    black-bgd: #000000;
+    black-cur: #1a1a1a;
+    black-fgd: #ffffff;
+    black-cmt: #4a4a4a;
+    black-acc: #2a2a2a;
+    black-sel: #333333;
+    black-brd: #444444;
+    
+    font: "Jetbrains Mono 12";
+    foreground: @black-fgd;
+    background-color: @black-bgd;
+    
+    active-background: @black-sel;
+    urgent-background: #ff3333;
+    urgent-foreground: @black-bgd;
+    
+    selected-background: @active-background;
+    selected-urgent-background: @urgent-background;
+    selected-active-background: @active-background;
+    
+    separatorcolor: @black-brd;
+    bordercolor: @black-brd;
+}
+
+window {
+    background-color: @background-color;
+    border:           3px;
+    border-radius:    0;
+    border-color:     @bordercolor;
+    padding:          10;
+    width:            30%;
+}
+
+mainbox {
+    border:  0;
+    padding: 0;
+}
+
+message {
+    border:       2px 0 0;
+    border-color: @separatorcolor;
+    padding:      1px;
+}
+
+textbox {
+    highlight: @black-sel;
+    text-color: @foreground;
+}
+
+listview {
+    border:       2px solid 0 0;
+    padding:      2px 0 0;
+    border-color: @separatorcolor;
+    spacing:      2px;
+    scrollbar:    true;
+}
+
+element {
+    border:  0;
+    padding: 2px;
+}
+
+element normal.normal {
+    background-color: @background-color;
+    text-color:       @foreground;
+}
+
+element normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+element normal.active {
+    background-color: @active-background;
+    text-color:       @foreground;
+}
+
+element selected.normal {
+    background-color: @selected-background;
+    text-color:       @foreground;
+}
+
+element selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @foreground;
+}
+
+element selected.active {
+    background-color: @selected-active-background;
+    text-color:       @foreground;
+}
+
+element alternate.normal {
+    background-color: @black-cur;
+    text-color:       @foreground;
+}
+
+element alternate.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+
+element alternate.active {
+    background-color: @active-background;
+    text-color:       @foreground;
+}
+
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-width: 8px;
+    padding:      0;
+    handle-color: @black-brd;
+}
+
+sidebar {
+    border:       2px 0 0;
+    border-color: @separatorcolor;
+}
+
+inputbar {
+    spacing:    0;
+    text-color: @foreground;
+    padding:    2px;
+    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+}
+
+case-indicator,
+entry,
+prompt,
+button {
+    spacing:    0;
+    text-color: @foreground;
+}
+
+button selected {
+    background-color: @selected-background;
+    text-color:       @foreground;
+}
+
+textbox-prompt-sep {
+    expand:     false;
+    str:        ":";
+    text-color: @foreground;
+    margin:     0 0.3em 0 0;
+}
