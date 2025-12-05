@@ -1,0 +1,32 @@
+/* eww.scss - Styling for the clock widget */
+
+* {
+  all: unset; /* Reset all styles */
+  font-family: "JetBrainsMono Nerd Font", "Ubuntu", sans-serif;
+}
+
+.clock-container {
+  background-color: rgba(49, 13, 3, 0.99);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.time {
+  color: #cdd6f4;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.date {
+  color: #a6adc8;
+  font-size: 14px;
+}
+
+/* Optional hover effect */
+.clock-container:hover {
+  background-color: rgba(40, 40, 56, 0.95);
+  transition: background-color 0.3s ease;
+}

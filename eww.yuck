@@ -1,0 +1,27 @@
+;; Clock widget definition
+(defwidget clock []
+  (box :class "clock-container"
+       :orientation "v"
+       :space-evenly false
+    (label :class "time" :text time)
+    (label :class "date" :text date)))
+
+;; Time and date polls
+(defpoll time :interval "1s"
+  `date +%H:%M:%S`)
+
+(defpoll date :interval "60s"
+  `date "+%A, %d %B %Y"`)
+
+;; Window definition
+(defwindow clock
+  :monitor 0
+  :geometry (geometry :x "840px"
+                     :y "20px"
+                     :width "200px"
+                     :height "80px"
+                     :anchor "top right")
+  :windowtype "dock"
+  :stacking "bg" 
+  :wm-ignore true
+  (clock))
