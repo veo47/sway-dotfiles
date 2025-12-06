@@ -1,154 +1,178 @@
-configuration {
-    show-icons:      true;
-    display-drun:    "";
-    disable-history: false;
-}
+/**
+ * Modern Nord Theme for Rofi
+ * Save as: ~/.config/rofi/nord-modern.rasi
+ */
 
 * {
-    /* Pure black theme color palette */
-    black-bgd: #000000;
-    black-cur: #1a1a1a;
-    black-fgd: #ffffff;
-    black-cmt: #4a4a4a;
-    black-acc: #2a2a2a;
-    black-sel: #333333;
-    black-brd: #444444;
+    bg: #2e3440;
+    bg-alt: #3b4252;
+    fg: #eceff4;
+    fg-alt: #d8dee9;
     
-    font: "Jetbrains Mono 12";
-    foreground: @black-fgd;
-    background-color: @black-bgd;
+    nord0: #2e3440;
+    nord1: #3b4252;
+    nord2: #434c5e;
+    nord3: #4c566a;
+    nord4: #d8dee9;
+    nord5: #e5e9f0;
+    nord6: #eceff4;
+    nord7: #8fbcbb;
+    nord8: #88c0d0;
+    nord9: #81a1c1;
+    nord10: #5e81ac;
+    nord11: #bf616a;
+    nord12: #d08770;
+    nord13: #ebcb8b;
+    nord14: #a3be8c;
+    nord15: #b48ead;
     
-    active-background: @black-sel;
-    urgent-background: #ff3333;
-    urgent-foreground: @black-bgd;
-    
-    selected-background: @active-background;
-    selected-urgent-background: @urgent-background;
-    selected-active-background: @active-background;
-    
-    separatorcolor: @black-brd;
-    bordercolor: @black-brd;
+    background-color: transparent;
+    text-color: @fg;
+    font: "Inter 11";
 }
 
 window {
-    background-color: @background-color;
-    border:           3px;
-    border-radius:    0;
-    border-color:     @bordercolor;
-    padding:          10;
-    width:            30%;
+    transparency: "real";
+    background-color: transparent;
+    border: 0px;
+    border-radius: 16px;
+    width: 650px;
 }
 
 mainbox {
-    border:  0;
+    show-icons:      true;
+    background-color: @bg;
+    border: 2px solid;
+    border-color: @nord3;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+inputbar {
+    children: [prompt, entry];
+    background-color: transparent;
+    spacing: 12px;
+    padding: 0px 0px 20px 0px;
+    border: 0px 0px 1px 0px;
+    border-color: @nord3;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @nord8;
+    padding: 0px;
+    font: "Inter Bold 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "Type to search...";
+    placeholder-color: @nord3;
+    padding: 0px;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 8;
+    spacing: 4px;
+    cycle: false;
+    dynamic: true;
+    layout: vertical;
+    padding: 8px 0px 0px 0px;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg-alt;
+    orientation: horizontal;
+    border-radius: 10px;
+    padding: 12px 16px;
+    spacing: 14px;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 32px;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-alt;
+}
+
+element selected.normal {
+    background-color: @nord10;
+    text-color: @fg;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg-alt;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color: @nord8;
+}
+
+element selected.active {
+    background-color: @nord8;
+    text-color: @bg;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color: @nord11;
+}
+
+element selected.urgent {
+    background-color: @nord11;
+    text-color: @fg;
+}
+
+scrollbar {
+    width: 0px;
+    border: 0;
+    handle-width: 0px;
     padding: 0;
 }
 
 message {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
-    padding:      1px;
+    background-color: @bg-alt;
+    border: 0px;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0px 0px 8px 0px;
 }
 
 textbox {
-    highlight: @black-sel;
-    text-color: @foreground;
+    background-color: transparent;
+    text-color: @fg;
+    padding: 0px;
 }
 
-listview {
-    border:       2px solid 0 0;
-    padding:      2px 0 0;
-    border-color: @separatorcolor;
-    spacing:      2px;
-    scrollbar:    true;
+mode-switcher {
+    background-color: transparent;
+    spacing: 0px;
 }
 
-element {
-    border:  0;
-    padding: 2px;
-}
-
-element normal.normal {
-    background-color: @background-color;
-    text-color:       @foreground;
-}
-
-element normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
-}
-
-element normal.active {
-    background-color: @active-background;
-    text-color:       @foreground;
-}
-
-element selected.normal {
-    background-color: @selected-background;
-    text-color:       @foreground;
-}
-
-element selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @foreground;
-}
-
-element selected.active {
-    background-color: @selected-active-background;
-    text-color:       @foreground;
-}
-
-element alternate.normal {
-    background-color: @black-cur;
-    text-color:       @foreground;
-}
-
-element alternate.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
-}
-
-element alternate.active {
-    background-color: @active-background;
-    text-color:       @foreground;
-}
-
-scrollbar {
-    width:        4px;
-    border:       0;
-    handle-width: 8px;
-    padding:      0;
-    handle-color: @black-brd;
-}
-
-sidebar {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
-}
-
-inputbar {
-    spacing:    0;
-    text-color: @foreground;
-    padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
-}
-
-case-indicator,
-entry,
-prompt,
 button {
-    spacing:    0;
-    text-color: @foreground;
+    background-color: @bg-alt;
+    text-color: @fg-alt;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 0px 4px 0px 0px;
 }
 
 button selected {
-    background-color: @selected-background;
-    text-color:       @foreground;
-}
-
-textbox-prompt-sep {
-    expand:     false;
-    str:        ":";
-    text-color: @foreground;
-    margin:     0 0.3em 0 0;
+    background-color: @nord10;
+    text-color: @fg;
 }
