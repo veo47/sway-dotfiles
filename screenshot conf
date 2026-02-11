@@ -1,4 +1,8 @@
-with your text editor ~/.local/bin/screenshot.sh  
+with your text editor 
+
+mkdir -p ~/.local/bin
+
+~/.local/bin/screenshot.sh  
 
 #!/usr/bin/env bash
 
